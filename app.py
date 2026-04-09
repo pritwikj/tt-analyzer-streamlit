@@ -200,11 +200,9 @@ if handles_to_show:
         df = pd.DataFrame(rows)
 
         # Summary metrics
-        col1, col2, col3, col4 = st.columns(4)
+        col1, col2 = st.columns(2)
         col1.metric("Total Posts", len(df))
-        col2.metric("Total Views", format_number(df["Views"].sum()))
-        col3.metric("Avg Engagement", f"{df['Engagement'].mean():.1%}")
-        col4.metric("Accounts", df["Handle"].nunique())
+        col2.metric("Accounts", df["Handle"].nunique())
 
         # Main data table
         st.dataframe(
