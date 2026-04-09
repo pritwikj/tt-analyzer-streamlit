@@ -66,13 +66,6 @@ with st.sidebar:
 
     top_n = st.slider("Top posts per account", min_value=1, max_value=50, value=10)
 
-    whisper_model_name = st.selectbox(
-        "Whisper model",
-        ["tiny", "base", "small"],
-        index=0,
-        help="Tiny is fastest. Small is most accurate but uses more memory.",
-    )
-
     force = st.checkbox("Force re-process", value=False, help="Re-analyze posts that were already processed")
 
     run_button = st.button("Run Analysis", type="primary", use_container_width=True)
@@ -103,8 +96,8 @@ if run_button:
         st.stop()
 
     # Load Whisper model
-    with st.spinner(f"Loading Whisper model ({whisper_model_name})..."):
-        whisper_model = get_whisper_model(whisper_model_name)
+    with st.spinner(f"Loading Whisper model ({"small"})..."):
+        whisper_model = get_whisper_model("small")
 
     # Track which handles we process
     processed_handles = []
