@@ -66,8 +66,6 @@ with st.sidebar:
 
     top_n = st.slider("Top posts per account", min_value=1, max_value=50, value=10)
 
-    force = st.checkbox("Force re-process", value=False, help="Re-analyze posts that were already processed")
-
     run_button = st.button("Run Analysis", type="primary", use_container_width=True)
 
 # ---------------------------------------------------------------------------
@@ -141,7 +139,7 @@ if run_button:
                             post_url,
                             whisper_model,
                             data_dir=str(DATA_DIR),
-                            force=force,
+                            force=False,
                         )
                     total_results[result] += 1
                 except Exception as e:
