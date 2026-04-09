@@ -235,7 +235,7 @@ if handles_to_show:
                                 f"{format_number(m.get('likes', 0))} likes | "
                                 f"{format_number(m.get('saves', 0))} saves")
 
-                    st.markdown(f"*{post.get('caption', 'No caption')[:200]}*")
+                    st.markdown(f"**Caption:** *{post.get('caption', 'No caption')[:200]}*")
 
                     # Show slides for slideshow posts
                     if post_type == "slideshow":
